@@ -4,7 +4,7 @@
 
 ## My part
 
-Conversation Coach is a hackathon team project: a voice app for practising difficult conversations (job interview, salary negotiation, feedback and others). It was built by Graham Lambe, Anna Peter, Terence La, 1yiwang and me.
+Conversation Coach is a hackathon team project: a voice app for practising difficult conversations (job interview, salary negotiation, feedback and others). It was built by Graham Lambe, Anna Peter, Terence La, Yi Wang and me.
 
 **What I built (merged in [PR #6](https://github.com/lambegraham/hackathon/pull/6), 34 files, about 1,660 lines):** the pre-conversation and live-coaching features described in [Background profile and live coach](#background-profile-and-live-coach-before-and-during-practice).
 - **Background profile.** The user uploads a CV, a LinkedIn PDF, notes, or pastes text. The server builds an editable profile with strengths, skills and room for improvement. Every item is tagged *stated* or *inferred*, and its quote is checked in code against the document, so the model cannot invent evidence. Only items the user has confirmed are used during the conversation.
