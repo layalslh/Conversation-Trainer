@@ -1,5 +1,26 @@
 # Conversation Coach
 
+> **Team project, forked from [lambegraham/hackathon](https://github.com/lambegraham/hackathon).** The "My part" section below is my own account of my contribution (Layal Saleh, [@layalslh](https://github.com/layalslh)); the rest of this README is the team's.
+
+## My part
+
+Conversation Coach is a hackathon team project: a voice app for practising difficult conversations (job interview, salary negotiation, feedback and others). It was built by Graham Lambe, Anna Peter, Terence La, 1yiwang and me.
+
+**What I built (merged in [PR #6](https://github.com/lambegraham/hackathon/pull/6), 34 files, about 1,660 lines):** the pre-conversation and live-coaching features described in [Background profile and live coach](#background-profile-and-live-coach-before-and-during-practice).
+- **Background profile.** The user uploads a CV, a LinkedIn PDF, notes, or pastes text. The server builds an editable profile with strengths, skills and room for improvement. Every item is tagged *stated* or *inferred*, and its quote is checked in code against the document, so the model cannot invent evidence. Only items the user has confirmed are used during the conversation.
+- **Goal tracker.** A job description or goal becomes a checklist of 2–6 points matched to the confirmed profile items. During practice, a point counts as covered only if the model returns a quote from the user's own answer and the code finds that quote in the answer.
+- **Live coach.** At most one short, dismissible comment at a time ("good moment to mention…" or "careful…"), plus filler-word and pace nudges computed in code from the live transcript. The user can set it to Normal, Quiet or Off. If anything fails, the conversation simply continues without a comment.
+- **Tests.** Unit tests for the profile, goal, nudge and retry logic, and Playwright end-to-end tests for the upload–edit–confirm flow and the goal tracker.
+
+**Gradium speech.** The Gradium speech-to-text and text-to-speech integration was my assigned area. My merged change there is the per-scenario keyword boost for transcription ([PR #3](https://github.com/lambegraham/hackathon/pull/3)), which is committed under the author name "Claude". The core integration was committed by teammates.
+
+**How it was made.** AI-assisted: I used Claude Code for implementation and debugging. I decided what to build, directed the work, tested it locally with a fictional CV and job description, and handled the git workflow and merge.
+
+**Not mine.** The live voice call screen, the avatar and wardrobe interface, the post-conversation report and scoring, saved-session history, the speech-metrics module, practice levels and recorded-voice review were built by teammates.
+
+**State.** Hackathon prototype. The automated tests use mocked AI responses, and I have not systematically measured the quality of live hints with the real model. Word (.docx) files are not supported; export to PDF instead.
+
+---
 Practise the conversations that matter before having them for real. Choose a scenario and difficulty, speak to an animated counterpart, and finish with two strengths, two improvements and a better way to phrase your response.
 
 Built from the [Notion hackathon plan](https://app.notion.com/p/3f5d67cd0a05805b8023c53570998144). Scenarios: job interview, salary negotiation, relationship conversation, difficult feedback, and a custom scenario.
